@@ -22,6 +22,8 @@ class GridViewPage extends StatefulWidget {
 }
 
 class _GridViewPageState extends State<GridViewPage> {
+  int _columnsCount = 2;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +32,13 @@ class _GridViewPageState extends State<GridViewPage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              if (_columnsCount < 3) {
+                setState(() {
+                  _columnsCount++;
+                });
+              }
+            },
             child: const Icon(
               Icons.grid_on,
               color: Colors.white,
@@ -38,7 +46,13 @@ class _GridViewPageState extends State<GridViewPage> {
           ),
           const SizedBox(height: 16),
           FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              if (_columnsCount > 2) {
+                setState(() {
+                  _columnsCount--;
+                });
+              }
+            },
             child: const Icon(
               Icons.grid_off,
               color: Colors.white,
@@ -55,8 +69,8 @@ class _GridViewPageState extends State<GridViewPage> {
         ],
       ),
       body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: _columnsCount,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
         ),
