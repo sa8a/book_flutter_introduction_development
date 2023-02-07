@@ -102,9 +102,11 @@ class _GridViewPageState extends State<GridViewPage> {
         ),
         itemCount: 20,
         itemBuilder: (BuildContext context, int index) {
+          final gridItemColor =
+              Color((math.Random(index).nextDouble() * 0x00FFFFFF).toInt())
+                  .withOpacity(1);
           return Container(
-            color: Color((math.Random(index).nextDouble() * 0x00FFFFFF).toInt())
-                .withOpacity(1),
+            color: gridItemColor,
             child: Center(
               child: Text(
                 index.toString(),
