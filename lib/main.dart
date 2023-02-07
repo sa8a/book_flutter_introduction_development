@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 void main() => runApp(const MyApp());
 
@@ -102,7 +103,8 @@ class _GridViewPageState extends State<GridViewPage> {
         itemCount: 20,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            color: Colors.black,
+            color: Color((math.Random(index).nextDouble() * 0x00FFFFFF).toInt())
+                .withOpacity(1),
             child: Center(
               child: Text(
                 index.toString(),
