@@ -105,17 +105,36 @@ class _GridViewPageState extends State<GridViewPage> {
           final gridItemColor =
               Color((math.Random(index).nextDouble() * 0x00FFFFFF).toInt())
                   .withOpacity(1);
-          return Container(
-            color: gridItemColor,
-            child: Center(
-              child: Text(
-                index.toString(),
-                style: const TextStyle(
-                  fontSize: 42,
-                  color: Colors.white,
+          return Stack(
+            children: [
+              Container(
+                color: gridItemColor,
+                child: Center(
+                  child: Text(
+                    index.toString(),
+                    style: const TextStyle(
+                      fontSize: 42,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
-            ),
+              Positioned(
+                right: 10,
+                bottom: 10,
+                child: Text(
+                  gridItemColor
+                      .toString()
+                      .toUpperCase()
+                      .substring(6, 16)
+                      .replaceAll('0X', '#'),
+                  style: const TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            ],
           );
         },
       ),
