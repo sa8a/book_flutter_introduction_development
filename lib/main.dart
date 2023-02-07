@@ -26,6 +26,14 @@ class _GridViewPageState extends State<GridViewPage> {
   final ScrollController _scrollController = ScrollController();
 
   @override
+  void initState() {
+    _scrollController.addListener(() {
+      setState(() {});
+    });
+    super.initState();
+  }
+
+  @override
   void dispose() {
     _scrollController.dispose();
     super.dispose();
@@ -34,7 +42,10 @@ class _GridViewPageState extends State<GridViewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(
+            '${_scrollController.hasClients ? _scrollController.position.pixels.toInt().toString() : 0} pixels'),
+      ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
