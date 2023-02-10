@@ -12,6 +12,13 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
   double _textScale = 1.0;
   bool _isLarge = false;
 
+  void _toggleLargeFont(bool isLarge) {
+    isLarge ? _textScale = 1.2 : _textScale = 1.0;
+    setState(() {
+      _isLarge = isLarge;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MediaQuery(
