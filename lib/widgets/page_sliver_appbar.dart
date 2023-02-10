@@ -81,6 +81,16 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      const Text('文字を大きく'),
+                                      Switch(
+                                        value: _isLarge,
+                                        onChanged: _toggleLargeFont,
+                                      ),
+                                    ],
+                                  ),
                                   Expanded(
                                     child: Text(
                                       'Sept. 29 2020',
