@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SliverAppBarPage extends StatefulWidget {
   const SliverAppBarPage({super.key});
@@ -50,8 +51,11 @@ class _SliverAppBarPageState extends State<SliverAppBarPage> {
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                const Expanded(
-                                  child: Text('Sept. 29 2020'),
+                                Expanded(
+                                  child: Text(
+                                    'Sept. 29 2020',
+                                    style: GoogleFonts.lato(),
+                                  ),
                                 ),
                                 IconButton(
                                   icon: const Icon(
