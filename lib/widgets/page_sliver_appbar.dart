@@ -9,6 +9,9 @@ class SliverAppBarPage extends StatefulWidget {
 }
 
 class _SliverAppBarPageState extends State<SliverAppBarPage> {
+  double _textScale = 1.0;
+  bool _isLarge = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
