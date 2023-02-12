@@ -27,6 +27,7 @@ class _Body extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+    final isPortrait = height > width;
     return Center(
       child: ConstrainedBox(
         constraints: const BoxConstraints(
@@ -49,8 +50,11 @@ class _Body extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            FlutterLogo(size: height * 0.3),
-            const Spacer(),
+            if (isPortrait)
+              FlutterLogo(
+                size: height * 0.3,
+              ),
+            if (isPortrait) const Spacer(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50),
               child: Text(
