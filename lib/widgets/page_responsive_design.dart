@@ -28,7 +28,7 @@ class _Body extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          const SizedBox(height: 60),
+          const Spacer(),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 50),
             child: Text(
@@ -41,7 +41,7 @@ class _Body extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 60),
+          const Spacer(),
           const FlutterLogo(size: 240),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 50),
@@ -55,7 +55,7 @@ class _Body extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 60),
+          const Spacer(),
           SizedBox(
             width: 300,
             height: 42,
