@@ -35,13 +35,14 @@ class _Body extends StatelessWidget {
         child: Column(
           children: [
             const Spacer(),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 50),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50),
               child: Text(
                 "Flutter is Google's UI toolkit for building beautiful, natively compiled",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
+                  fontSize: 15 * (height + width) / (926 + 438),
                   height: 1.85,
                   fontWeight: FontWeight.bold,
                 ),
@@ -49,14 +50,15 @@ class _Body extends StatelessWidget {
             ),
             const Spacer(),
             FlutterLogo(size: height * 0.3),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 50),
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50),
               child: Text(
                 'Fast Development Paint your app to life in milliseconds with Stateful Hot Reload. Use a rich set of ',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 15,
+                  fontSize: 15 * (height + width) / (926 + 438),
                   height: 1.85,
                 ),
               ),
@@ -76,15 +78,15 @@ class _Body extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {},
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: 15,
                   ),
                   child: Text(
                     'get started',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 15 * (height + width) / (926 + 438),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
