@@ -25,6 +25,8 @@ class _Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Center(
       child: Column(
         children: [
@@ -42,7 +44,7 @@ class _Body extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const FlutterLogo(size: 240),
+          FlutterLogo(size: height * 0.3),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 50),
             child: Text(
