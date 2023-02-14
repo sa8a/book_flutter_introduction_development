@@ -50,7 +50,15 @@ class HeroFromPage extends StatelessWidget {
             Hero(
               tag: HeroImages.titles[index],
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (context) => HeroToPage(
+                        index: index,
+                      ),
+                    ),
+                  );
+                },
                 child: ImageItem(
                   url: HeroImages.urls[index],
                 ),
@@ -78,6 +86,35 @@ class ImageItem extends StatelessWidget {
         ),
       ),
       fit: BoxFit.cover,
+    );
+  }
+}
+
+class HeroToPage extends StatelessWidget {
+  const HeroToPage({super.key, required this.index});
+
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: Scaffold(
+        backgroundColor: Colors.black87,
+        appBar: AppBar(
+          title: Text(HeroImages.titles[index]),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Hero(
+            tag: HeroImages.titles[index],
+            child: Center(
+              child: ImageItem(
+                url: HeroImages.urls[index],
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
