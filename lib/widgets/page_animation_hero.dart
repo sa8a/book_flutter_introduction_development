@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 class HeroImages {
   static const List<String> titles = [
     'Bear',
@@ -28,4 +31,53 @@ class HeroImages {
     'https://images.pexels.com/photos/1612371/pexels-photo-1612371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     'https://images.pexels.com/photos/2286895/pexels-photo-2286895.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   ];
+}
+
+class HeroFromPage extends StatelessWidget {
+  const HeroFromPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Hero Animation'),
+      ),
+      body: GridView.count(
+        crossAxisCount: 2,
+        childAspectRatio: 1.5,
+        children: [
+          for (var index = 0; index < HeroImages.titles.length; index++)
+            Hero(
+              tag: HeroImages.titles[index],
+              child: GestureDetector(
+                onTap: () {},
+                child: ImageItem(
+                  url: HeroImages.urls[index],
+                ),
+              ),
+            )
+        ],
+      ),
+    );
+  }
+}
+
+class ImageItem extends StatelessWidget {
+  const ImageItem({super.key, required this.url});
+
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
+    return CachedNetworkImage(
+      imageUrl: url,
+      placeholder: (context, url) => Container(
+        color: Colors.grey[200],
+        child: const Center(
+          child: CircularProgressIndicator(),
+        ),
+      ),
+      fit: BoxFit.cover,
+    );
+  }
 }
