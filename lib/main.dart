@@ -3,6 +3,7 @@ import 'widgets/page_gridview.dart';
 import 'widgets/page_sliver_appbar.dart';
 import 'widgets/page_responsive_design.dart';
 import 'widgets/page_animation_hero.dart';
+import 'widgets/page_transition.dart';
 
 void main() => runApp(const MyApp());
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
       // home: GridViewPage(), // P45
       // home: SliverAppBarPage(), // P63
       // home: ResponsiveDesignPage(), // P63
-      home: HeroFromPage(), // P110
+      // home: HeroFromPage(), // P110
+      home: TransitionPage(), // P117
     );
   }
 }
