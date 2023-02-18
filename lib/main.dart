@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'widgets/page_gridview.dart';
-import 'widgets/page_sliver_appbar.dart';
-import 'widgets/page_responsive_design.dart';
-import 'widgets/page_animation_hero.dart';
-import 'widgets/page_transition.dart';
-import 'widgets/page_open_container.dart';
+// import 'widgets/page_gridview.dart';
+// import 'widgets/page_sliver_appbar.dart';
+// import 'widgets/page_responsive_design.dart';
+// import 'widgets/page_animation_hero.dart';
+// import 'widgets/page_transition.dart';
+// import 'widgets/page_open_container.dart';
 import 'views/pages/pages.dart';
 
 void main() => runApp(const MyApp());
