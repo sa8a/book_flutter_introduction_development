@@ -5,6 +5,7 @@ import 'widgets/page_responsive_design.dart';
 import 'widgets/page_animation_hero.dart';
 import 'widgets/page_transition.dart';
 import 'widgets/page_open_container.dart';
+import 'views/pages/pages.dart';
 
 void main() => runApp(const MyApp());
 
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
       // home: ResponsiveDesignPage(), // P63
       // home: HeroFromPage(), // P110
       // home: TransitionPage(), // P117
-      home: OpenContainerPage(), // P126
+      // home: OpenContainerPage(), // P126
+      home: TodosListPage(), // P160
     );
   }
 }
