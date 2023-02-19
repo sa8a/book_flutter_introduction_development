@@ -11,7 +11,7 @@ class TodosListPage extends StatefulWidget {
 }
 
 class _TodosListPageState extends State<TodosListPage> {
-  final List<Todo> _todos = const [
+  final List<Todo> _todos = [
     Todo(name: 'パンを買う', isCompleted: false),
     Todo(name: '牛乳を買う', isCompleted: true),
     Todo(name: 'お菓子を買う', isCompleted: false),
@@ -25,17 +25,30 @@ class _TodosListPageState extends State<TodosListPage> {
       body: ListView.builder(
         itemBuilder: (BuildContext context, int index) {
           final todo = _todos[index];
-          return Card(
-            color: todo.isCompleted ? Colors.greenAccent : null,
-            child: ListTile(
-              title: Text(todo.name),
-              onTap: () {},
-              trailing: todo.isCompleted
-                  ? const Icon(
-                      Icons.done,
-                      color: Colors.green,
-                    )
-                  : null,
+          return Dismissible(
+            key: ObjectKey(todo),
+            onDismissed: (direction) {
+              setState(() {
+                _todos.removeAt(index);
+              });
+            },
+            child: Card(
+              color: todo.isCompleted ? Colors.greenAccent : null,
+              child: ListTile(
+                title: Text(todo.name),
+                onTap: () {
+                  setState(() {
+                    _todos[index] =
+                        Todo(isCompleted: !todo.isCompleted, name: todo.name);
+                  });
+                },
+                trailing: todo.isCompleted
+                    ? const Icon(
+                        Icons.done,
+                        color: Colors.green,
+                      )
+                    : null,
+              ),
             ),
           );
         },
