@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 class TodoAddDialog extends StatelessWidget {
   const TodoAddDialog({
     super.key,
+    required this.onAdd,
     required this.textEditingController,
   });
 
+  final ValueChanged<String> onAdd;
   final TextEditingController textEditingController;
 
   @override
@@ -34,3 +36,16 @@ class TodoAddDialog extends StatelessWidget {
     );
   }
 }
+
+Future<T?> showTodoAddDialog<T>({
+  required BuildContext context,
+  required ValueChanged<String> onAdd,
+}) =>
+    showDialog<T>(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => TodoAddDialog(
+        textEditingController: TextEditingController(),
+        onAdd: onAdd,
+      ),
+    );
