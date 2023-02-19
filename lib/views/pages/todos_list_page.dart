@@ -11,13 +11,26 @@ class TodosListPage extends StatefulWidget {
 }
 
 class _TodosListPageState extends State<TodosListPage> {
+  final List<Todo> _todos = [const Todo(name: 'パンを買う')];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('TODOアプリ'),
       ),
-      body: Container(),
+      body: ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          final todo = _todos[index];
+          return Card(
+            child: ListTile(
+              title: Text(todo.name),
+              onTap: () {},
+              trailing: const Icon(Icons.done, color: Colors.green),
+            ),
+          );
+        },
+        itemCount: _todos.length,
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         tooltip: 'Increment',
