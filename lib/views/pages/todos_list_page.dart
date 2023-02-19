@@ -11,7 +11,11 @@ class TodosListPage extends StatefulWidget {
 }
 
 class _TodosListPageState extends State<TodosListPage> {
-  final List<Todo> _todos = [const Todo(name: 'パンを買う')];
+  final List<Todo> _todos = const [
+    Todo(name: 'パンを買う', isCompleted: false),
+    Todo(name: '牛乳を買う', isCompleted: true),
+    Todo(name: 'お菓子を買う', isCompleted: false),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +26,16 @@ class _TodosListPageState extends State<TodosListPage> {
         itemBuilder: (BuildContext context, int index) {
           final todo = _todos[index];
           return Card(
+            color: todo.isCompleted ? Colors.greenAccent : null,
             child: ListTile(
               title: Text(todo.name),
               onTap: () {},
-              trailing: const Icon(Icons.done, color: Colors.green),
+              trailing: todo.isCompleted
+                  ? const Icon(
+                      Icons.done,
+                      color: Colors.green,
+                    )
+                  : null,
             ),
           );
         },
