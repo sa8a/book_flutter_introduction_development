@@ -29,6 +29,7 @@ class TodoAddDialog extends StatelessWidget {
         ElevatedButton(
           child: const Text('追加する'),
           onPressed: () {
+            onAdd(textEditingController.value.text);
             Navigator.of(context).pop();
           },
         )
