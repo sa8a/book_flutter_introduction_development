@@ -11,31 +11,29 @@ class TodoAddDialog extends StatelessWidget {
   final TextEditingController textEditingController;
 
   @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: const Text('TODO'),
-      content: TextField(
-        autofocus: true,
-        controller: textEditingController,
-        decoration: const InputDecoration(hintText: '入力しましょう。'),
-      ),
-      actions: <Widget>[
-        TextButton(
-          child: const Text('キャンセル'),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
+  Widget build(BuildContext context) => AlertDialog(
+        title: const Text('TODO'),
+        content: TextField(
+          autofocus: true,
+          controller: textEditingController,
+          decoration: const InputDecoration(hintText: '入力しましょう。'),
         ),
-        ElevatedButton(
-          child: const Text('追加する'),
-          onPressed: () {
-            onAdd(textEditingController.value.text);
-            Navigator.of(context).pop();
-          },
-        )
-      ],
-    );
-  }
+        actions: <Widget>[
+          TextButton(
+            child: const Text('キャンセル'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          ElevatedButton(
+            child: const Text('追加する'),
+            onPressed: () {
+              onAdd(textEditingController.value.text);
+              Navigator.of(context).pop();
+            },
+          )
+        ],
+      );
 }
 
 Future<T?> showTodoAddDialog<T>({
