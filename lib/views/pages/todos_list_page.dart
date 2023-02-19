@@ -42,7 +42,15 @@ class _TodosListPageState extends State<TodosListPage> {
         itemCount: _todos.length,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showTodoAddDialog(
+              context: context,
+              onAdd: (name) {
+                setState(() {
+                  _todos.insert(0, Todo(name: name));
+                });
+              });
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
